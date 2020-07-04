@@ -4,7 +4,7 @@ import fe from '../fe.png';
 import fs from '../fs.png';
 import ios from '../ios.png';
 import UI from '../UI.png';
-
+import {BrowserRouter , Route, withRouter} from 'react-router-dom';
 class DomainSelection extends React.Component {
 
 
@@ -15,16 +15,20 @@ class DomainSelection extends React.Component {
 	}
 
 	UIImageClicked=()=>{
-        this.props.setDomain("UI");
+		this.props.setDomain("UI");
+		this.props.history.push('/uploadresume');
 	}
 	FEImageClicked=()=>{
-        this.props.setDomain("Front-End");
+		this.props.setDomain("Front-End");
+		this.props.history.push('/uploadresume');
 	}
 	FSImageClicked=()=>{
-        this.props.setDomain("Full Stack");
+		this.props.setDomain("Full Stack");
+		this.props.history.push('/uploadresume');
 	}
 	IOSImageClicked=()=>{
-        this.props.setDomain("IOS");
+		this.props.setDomain("IOS");
+		this.props.history.push('/uploadresume');
         
 	}
 
@@ -74,4 +78,4 @@ class DomainSelection extends React.Component {
 	}
 }
 
-export default DomainSelection;
+export default withRouter(DomainSelection);

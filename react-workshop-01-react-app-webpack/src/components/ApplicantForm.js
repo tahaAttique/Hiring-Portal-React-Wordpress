@@ -4,7 +4,7 @@ import {Form, FormControl, FormGroup, ControlLabel, HelpBlock, Checkbox, Radio, 
 import {Card} from 'react-bootstrap';
 import { AiOutlineClose } from "react-icons/ai";
 import FormSubmitted from "./FormSubmitted";
-
+import {BrowserRouter , Route, withRouter} from 'react-router-dom';
 class ApplicantForm extends React.Component {
 
 
@@ -14,8 +14,6 @@ class ApplicantForm extends React.Component {
         };
 	
     }
-
-
 
     deleteworkedLanguages = (id) =>{
         
@@ -41,18 +39,39 @@ class ApplicantForm extends React.Component {
         })
       } 
 
-    nextBtnHandeler=()=>{
-        
+    goBack=()=>{
+        this.props.history.goBack();
     }
 
 	render() {
 
-        let addModalClose=()=> this.setState({addModalShow:false});
+        let addModalClose=()=> {
+            this.setState({addModalShow:false});
+            this.props.history.push('/');
+        }
 		return (
 				
+        <div>
+            
+            <div style={{ backgroundColor:"white", height:"55px"}}>
+
+            <div className="row" >
+                <div className="col-sm-2" >
+                    <button type="button" className="btn btn-secondary" 
+                    style={{marginRight: "20px", backgroundColor:"#2F4F4F", color:"white", marginLeft:"20px" ,marginTop:"5px"}} 
+                    onClick={this.goBack}
+                    >Back</button>
+                </div>
+                <div className="col-sm-10">
+                    <h3 style={{ color:"#2F4F4F", textAlign:"center", marginTop:"10px"}} >Selected Domain: {this.props.domain}</h3>
+                </div>
+            </div>
+            </div>
+
         
-           <div style={{marginBottom:"20px", marginRight:"130px", marginLeft:"100px"}}>
-              
+           <div style={{marginBottom:"20px", marginRight:"130px", marginLeft:"100px"}}> 
+
+
 		   <div className="container" style={{ border:"3px solid  lightgrey" , marginTop:"40px"}}>
                <Form>
                    <h1 style={{color: "white"}}>Personal Info</h1>
@@ -148,25 +167,28 @@ class ApplicantForm extends React.Component {
                             </div>
                             <div className="col-sm" style={{marginBottom:"20px"}}>
                             <button type="button" className="btn btn-secondary"
-                                    style={{marginRight: "20px" ,backgroundColor:"white", color:"#2F4F4F"}}
-                                >Back</button>    
-                                <button 
+                                style={{marginRight: "20px" ,backgroundColor:"white", color:"#2F4F4F"}}
+                                onClick={this.goBack}
+                            >Back</button>    
+                            <button 
                                 style={{marginRight: "20px" ,backgroundColor:"white", color:"#2F4F4F", }}
-                                type="button" className="btn btn-primary" onClick={()=>this.setState({addModalShow:true})}>Next </button>
-                                
-                                <FormSubmitted
-                                    show={this.state.addModalShow}
-                                    onHide={addModalClose}
-                                />
+                                type="button" className="btn btn-primary" onClick={()=>this.setState({addModalShow:true})}>
+                            Submit </button>
+                            
+                            <FormSubmitted
+                                show={this.state.addModalShow}
+                                onHide={addModalClose}
+                            />
                                 
                             </div>
                     </div>
                 </Form>
             </div>
         </div>
+    </div>
 					
 		);
 	}
 }
 
-export default ApplicantForm;
+export default withRouter(ApplicantForm);

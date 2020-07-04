@@ -1,6 +1,6 @@
 import React, {Component} from 'react'; 
 import {Modal, Button, Row, Col,Form} from 'react-bootstrap';
-
+import {BrowserRouter , Route, withRouter} from 'react-router-dom';
 import './AppCSS.css';
 import { AiOutlineCheck } from "react-icons/ai";
 
@@ -46,5 +46,5 @@ class FormSubmitted extends React.Component {
         );
     }  
 }  
-export default FormSubmitted;
+export default withRouter(FormSubmitted);
 

@@ -4,6 +4,7 @@ import DomainSelection from './components/DomainSelection'
 import UploadResume from './components/UploadResume'
 import ApplicantForm from './components/ApplicantForm'
 import FormSubmitted from "./components/FormSubmitted";
+import {BrowserRouter , Route} from 'react-router-dom';
 class App extends React.Component {
 
 
@@ -24,14 +25,16 @@ class App extends React.Component {
 	render() {
 		return (
 				
-
-		   <div>
-				<DomainSelection setDomain={this.setDomain} domain={this.state.domain} />
-				<UploadResume setDomain={this.setDomain} domain={this.state.domain} />
-				<ApplicantForm setDomain={this.setDomain} domain={this.state.domain} />
-				{/* <FormSubmitted/> */}
-		  </div>
-					
+			<div className="App">
+				<BrowserRouter>
+					<div className="App">
+				
+						<Route exact path='/' component={(props)=> <DomainSelection  setDomain={this.setDomain} domain={this.state.domain} />} />
+						<Route path='/uploadresume'  render={(props)=> <UploadResume  setDomain={this.setDomain} domain={this.state.domain} /> } /> 
+						<Route path='/applicationform'  render={(props)=> <ApplicantForm setDomain={this.setDomain} domain={this.state.domain}/> } />				
+					</div>
+				</BrowserRouter> 
+			</div>	
 		);
 	}
 }
