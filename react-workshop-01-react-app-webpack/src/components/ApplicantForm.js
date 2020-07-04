@@ -10,10 +10,58 @@ class ApplicantForm extends React.Component {
 
 	constructor(props){
 		super(props);
-        this.state={workedLanguages:[],  addModalShow: false  
+        this.state={workedLanguages:[],  addModalShow: false, 
+        name:'', contact:'', email:'',
+		currentAddress:'', discipline:'', gratuationYear:'',
+		university:''
         };
 	
     }
+
+    onNameChange=(e)=>{
+
+        this.setState({
+            name:e.target.value
+        })
+    }
+    onContactChange=(e)=>{
+
+        this.setState({
+            contact:e.target.value
+        })
+    }
+    onEmailChange=(e)=>{
+
+        this.setState({
+            email:e.target.value
+        })
+    }
+    onCurrentAddressChange=(e)=>{
+
+        this.setState({
+            currentAddress:e.target.value
+        })
+    }
+    onDisciplineChange=(e)=>{
+
+        this.setState({
+            discipline:e.target.value
+        })
+    }
+    onGratuationYearChange=(e)=>{
+
+        this.setState({
+            gratuationYear:e.target.value
+        })
+    }
+
+    onUniversityChange=(e)=>{
+
+        this.setState({
+            university:e.target.value
+        })
+    }
+
 
     deleteworkedLanguages = (id) =>{
         
@@ -48,6 +96,14 @@ class ApplicantForm extends React.Component {
         let addModalClose=()=> {
             this.setState({addModalShow:false});
             this.props.history.push('/');
+
+            
+            let objj={id:Math.random(),domain:this.props.domain,resume:this.props.resume, name:this.state.name, contact:this.state.contact
+                ,email:this.state.email , currentAddress:this.state.currentAddress, 
+                discipline:this.state.discipline,
+                gratuationYear:this.state.gratuationYear, university:this.state.university,
+                workedLanguages:this.state.workedLanguages }
+                this.props.addNewApplication(objj);
         }
 		return (
 				
@@ -78,34 +134,34 @@ class ApplicantForm extends React.Component {
                     <div style={{marginRight:"20px", marginLeft:"40px"}}> 
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label style={{color:'white'}}>Name:<span style={{color:'red'}} >*</span>  </Form.Label>
-                            <Form.Control required type="textarea" placeholder="" />
+                            <Form.Control required onChange={this.onNameChange} type="textarea" placeholder="" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label style={{color:'white'}}>Contact No:<span style={{color:'red'}} >*</span></Form.Label>
-                            <Form.Control type="number" placeholder="" />
+                            <Form.Control required type="number" onChange={this.onContactChange}  placeholder="" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label style={{color:'white'}}>Email":<span style={{color:'red'}} >*</span></Form.Label>
-                            <Form.Control required type="email" placeholder="name@example.com" />
+                            <Form.Control required type="email" onChange={this.onEmailChange}  placeholder="name@example.com" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                             <Form.Label style={{color:'white'}}>Current Address:</Form.Label>
-                            <Form.Control as="textarea" rows="3" />
+                            <Form.Control onChange={this.onCurrentAddressChange}  as="textarea" rows="3" />
                         </Form.Group>
                     </div>
                     <h1 style={{color: "white"}}>Educational Background</h1>
                     <div style={{marginRight:"20px", marginLeft:"40px"}}>
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label style={{color:'white'}}>Discipline:<span style={{color:'red'}} >*</span>  </Form.Label>
-                            <Form.Control required type="textarea" placeholder="" />
+                            <Form.Control required onChange={this.onDisciplineChange}  type="textarea" placeholder="" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label style={{color:'white'}}>Gratuation Year:<span style={{color:'red'}} >*</span>  </Form.Label>
-                            <Form.Control required type="textarea" placeholder="" />
+                            <Form.Control required onChange={this.onGratuationYearChange}  type="textarea" placeholder="" />
                         </Form.Group>
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label style={{color:'white'}}>University</Form.Label>
-                            <Form.Control type="textarea" placeholder="" />
+                            <Form.Control type="textarea" onChange={this.onUniversityChange}  placeholder="" />
                         </Form.Group>
                     </div>
                     <h1 style={{color: "white"}}>Technical Background</h1>

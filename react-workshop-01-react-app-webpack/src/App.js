@@ -11,9 +11,22 @@ class App extends React.Component {
 	constructor(props){
 
 		super(props);
-		this.state={domain:''};
+		this.state={domain:'',application:[],resume:''};
 	
 	}
+
+	setResume=(data)=>{
+		this.setState({
+			resume:data
+		})
+	}
+	
+	addNewApplication=(obj)=>{
+		console.log("It run")
+		this.state.application.push(obj);
+		console.log(this.state.application)
+	}
+
 
 	setDomain=(_domain)=>{
 
@@ -27,16 +40,20 @@ class App extends React.Component {
 				
 			<div className="App">
 				<BrowserRouter>
+
 					<div className="App">
-				
-						<Route exact path='/' component={(props)=> <DomainSelection  setDomain={this.setDomain} domain={this.state.domain} />} />
-						<Route path='/uploadresume'  render={(props)=> <UploadResume  setDomain={this.setDomain} domain={this.state.domain} /> } /> 
-						<Route path='/applicationform'  render={(props)=> <ApplicantForm setDomain={this.setDomain} domain={this.state.domain}/> } />				
+						<Route exact path='/' component={(props)=> <DomainSelection  setDomain={this.setDomain}
+						 domain={this.state.domain} />} />
+						<Route path='/uploadresume'  render={(props)=> <UploadResume  setResume={this.setResume} 
+						setDomain={this.setDomain} domain={this.state.domain} /> } /> 
+						<Route path='/applicationform'  render={(props)=> <ApplicantForm 
+						resume={this.state.resume} 
+						domain={this.state.domain} addNewApplication={this.addNewApplication}/> } />				
 					</div>
+
 				</BrowserRouter> 
 			</div>	
 		);
 	}
 }
-
 export default App;

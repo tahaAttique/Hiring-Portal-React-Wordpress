@@ -18,6 +18,8 @@ class UploadResume extends React.Component {
         reader.onload=(e)=>{
             console.warn('img data', e.target.result)
 
+
+            this.props.setResume(e.target.result);
             // here you have to send this to server (e.traget.result)
             //const url="http://127.0.0.1:8000/api/something";
             // const formData={file:e.target.result}

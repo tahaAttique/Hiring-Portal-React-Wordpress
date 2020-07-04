@@ -29,12 +29,10 @@ class DomainSelection extends React.Component {
 	IOSImageClicked=()=>{
 		this.props.setDomain("IOS");
 		this.props.history.push('/uploadresume');
-        
 	}
 
 	render() {
 		return (
-				
 			<div className="container" >
 				<h1 style={{fontSize: "100px", textAlign: "center", opacity: "0.1", marginTop: "20px"}} >WE ARE HIRING</h1>
 				<div className="row" >
