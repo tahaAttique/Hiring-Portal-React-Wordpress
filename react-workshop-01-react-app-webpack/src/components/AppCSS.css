@@ -1,0 +1,82 @@
+#idRow {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: white;
+}
+
+.btn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+#idH1UploadResume {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: white;
+}
+
+body {
+    background-color:darkslategray;
+    
+  }
+
+img{
+
+  height: 150px;
+  width: 150px;
+}
+
+card{
+  height: 100px;
+  width: 100px;
+  
+}
+
+
+/* index.css */ 
+.modal {
+  font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  margin: auto;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
