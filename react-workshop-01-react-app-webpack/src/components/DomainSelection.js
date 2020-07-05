@@ -30,11 +30,26 @@ class DomainSelection extends React.Component {
 		this.props.setDomain("IOS");
 		this.props.history.push('/uploadresume');
 	}
+	adminHandler=()=>{
+		this.props.history.push('/admin');
+	}
 
 	render() {
 		return (
-			<div className="container" >
-				<h1 style={{fontSize: "100px", textAlign: "center", opacity: "0.1", marginTop: "20px"}} >WE ARE HIRING</h1>
+			<div className="container-fluid" >
+
+					<div className="row" >
+						<div className="col-sm-2" >
+							<button type="button" className="btn btn-secondary" 
+							style={{marginRight: "20px", backgroundColor:"white", color:"#2F4F4F", marginLeft:"20px" ,marginTop:"5px"}} 
+							onClick={this.adminHandler}
+							>Admin</button>
+						</div>
+						<div className="col-sm-10">
+							
+						</div>
+					</div>
+				<h1 style={{fontSize: "100px", textAlign: "center", opacity: "0.1", marginTop: "0px"}} >WE ARE HIRING</h1>
 				<div className="row" >
 					<div className="col-sm">
 						
@@ -49,18 +64,20 @@ class DomainSelection extends React.Component {
 				
 				<div className="row" >
 					<div className="col-sm" >
-						<div className="card"  style={{width: "150px", border: "3px solid  lightgrey" }} >
+						<div className="card"  style={{width: "150px", border: "3px solid  lightgrey" 
+							,marginLeft:"100px"
+						}} >
 	
 							<img src={UI} onClick={this.UIImageClicked} ></img>
 						</div>
 					</div>
 					<div className="col-sm">
-						<div className="card"   style={{width: "150px", border: "3px solid  lightgrey" }} >
+						<div className="card"   style={{marginLeft:"50px",width: "150px", border: "3px solid  lightgrey" }} >
 							<img src={fe} onClick={this.FEImageClicked}></img>
 						</div>
 					</div>
 					<div className="col-sm">
-						<div className="card"  style={{width: "150px", border: "3px solid  lightgrey" }} >
+						<div className="card"  style={{marginLeft:"30px",width: "150px", border: "3px solid  lightgrey" }} >
 							<img src={fs} onClick={this.FSImageClicked} ></img>
 						</div>
 					</div>

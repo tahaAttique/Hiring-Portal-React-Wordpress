@@ -102,8 +102,10 @@ class ApplicantForm extends React.Component {
                 ,email:this.state.email , currentAddress:this.state.currentAddress, 
                 discipline:this.state.discipline,
                 gratuationYear:this.state.gratuationYear, university:this.state.university,
-                workedLanguages:this.state.workedLanguages }
+                workedLanguages:this.state.workedLanguages, status:"NOT" }
                 this.props.addNewApplication(objj);
+
+                console.log("Application Submitted  " ,  objj)
         }
 		return (
 				
@@ -225,10 +227,13 @@ class ApplicantForm extends React.Component {
                             <button type="button" className="btn btn-secondary"
                                 style={{marginRight: "20px" ,backgroundColor:"white", color:"#2F4F4F"}}
                                 onClick={this.goBack}
-                            >Back</button>    
+                            >Back</button>   
+
+                            
+
                             <button 
                                 style={{marginRight: "20px" ,backgroundColor:"white", color:"#2F4F4F", }}
-                                type="button" className="btn btn-primary" onClick={()=>this.setState({addModalShow:true})}>
+                                type="button" className="btn btn-primary" onClick={()=>this.setState({addModalShow:true})} >
                             Submit </button>
                             
                             <FormSubmitted
